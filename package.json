@@ -1,0 +1,27 @@
+{
+  "name": "thinodium-rethinkdb",
+  "version": "1.0.0",
+  "description": "RethinkDB adapter for Thinodium ODM library",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiddentao/thinodium-rethinkdb.git"
+  },
+  "keywords": [
+    "odm",
+    "rethinkdb",
+    "thinodium",
+    "db",
+    "adapter",
+    "plugin"
+  ],
+  "author": "Ramesh Nair <ram@hiddentao.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hiddentao/thinodium-rethinkdb/issues"
+  },
+  "homepage": "https://github.com/hiddentao/thinodium-rethinkdb#readme"
+}
