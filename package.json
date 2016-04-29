@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hiddentao/thinodium-rethinkdb.git"
+    "url": "https://github.com/hiddentao/thinodium-rethinkdb.git"
   },
   "keywords": [
     "odm",
@@ -23,5 +23,9 @@
   "bugs": {
     "url": "https://github.com/hiddentao/thinodium-rethinkdb/issues"
   },
-  "homepage": "https://github.com/hiddentao/thinodium-rethinkdb#readme"
+  "homepage": "https://github.com/hiddentao/thinodium-rethinkdb#readme",
+  "dependencies": {
+    "bluebird": "^3.3.5",
+    "lodash": "^4.11.1"
+  }
 }
