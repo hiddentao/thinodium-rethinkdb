@@ -6,11 +6,9 @@ A RethinkDB adapter for [thinodium](https://github.com/hiddentao/thinodium).
 
 Features:
 
-* Creates table and indexes if they don't already exist.
+* Creates tables and indexes if they don't already exist.
 
 ## Installation
-
-This package must be used in conjunction with `thinodium`.
 
 ```bash
 $ npm install thinodium thinodium-rethinkdb

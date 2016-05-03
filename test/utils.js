@@ -16,7 +16,7 @@ exports.should = chai.should();
 
 exports.sinon = sinon;
 
-exports.ThinodiumRethinkDB = require('../');
+exports.Plugin = require('../');
 
 
 exports.createTest = function(_module) {
