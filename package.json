@@ -27,5 +27,11 @@
   "dependencies": {
     "bluebird": "^3.3.5",
     "lodash": "^4.11.1"
+  },
+  "peerDependencies": {
+    "thinodium": "^1.0.1"
+  },
+  "devDependencies": {
+    "thinodium": "^1.0.1"
   }
 }

@@ -10,10 +10,40 @@ var utils = require('./utils'),
   sinon = utils.sinon;
 
 var Plugin = utils.Plugin,
-  Database = Plugin.Database;
+  Database = Plugin.Database,
+  Model = Plugin.Model;
 
 
 var test = utils.createTest(module);
 
+test['connect'] = {
+  beforeEach: function*() {
+    this.db = new Database();
+  },
 
+  afterEach: function*() {
+    if (this.db) {
+      
+    }
+    
+    yield this.dropDb('thinodium-rethinkdb-test');
+  },
+
+  'creates db if it does not exist': function*() {
+    yield this.db.connect({
+      db: 'thinodium-rethinkdb-test',
+    });
+
+    let listOfDbs = yield this._r.dbList();
+
+    listOfDbs.should.contain('thinodium-rethinkdb-test');
+  },
+};
+
+
+
+
+
+
+test['connect'] = 
 

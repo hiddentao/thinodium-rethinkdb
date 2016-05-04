@@ -20,11 +20,11 @@ $ npm install thinodium thinodium-rethinkdb
 ```js
 const thinodium = require('thinodium');
 
-// connect using custom adatper
 const db = yield thinodium.connect('rethinkdb', {
   // db name
   db: 'mydb',
-  /* all other options get passed to rethinkdbdash module */
+  /* all options get passed to rethinkdbdash module */
+  ...
 });
 
 // get the model and setup indexes
@@ -41,11 +41,16 @@ const User = yield db.model('User', {
 let user = yield User.insert({
   name: 'john'
 });
+
+// ... normal thinodium API methods available at this point
 ```
+
+Check out the [thinodium docs](https://hiddentao.github.io/thinodium) for further usage examples and API docs.
 
 ## Building
 
-To run the tests:
+To run the tests you will need [RethinkDB](https://www.rethinkdb.com/) installed and running with default 
+host and port settings. Then on the command-line:
 
     $ npm install
     $ npm test
