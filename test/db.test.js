@@ -16,14 +16,16 @@ var Plugin = utils.Plugin,
 
 var test = utils.createTest(module);
 
-test['connect'] = {
+
+
+test['connect/disconnect'] = {
   beforeEach: function*() {
     this.db = new Database();
   },
 
   afterEach: function*() {
     if (this.db) {
-      
+      yield this.db.disconnect();
     }
     
     yield this.dropDb('thinodium-rethinkdb-test');
@@ -38,12 +40,15 @@ test['connect'] = {
 
     listOfDbs.should.contain('thinodium-rethinkdb-test');
   },
+
+  'uses db it it already exists': function*() {
+    yield this.createDb('thinodium-rethinkdb-test');
+
+    yield this.db.connect({
+      db: 'thinodium-rethinkdb-test',
+    });
+  },
 };
 
 
-
-
-
-
-test['connect'] = 
 

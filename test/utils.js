@@ -56,7 +56,7 @@ exports.createTest = function(_module) {
           if (healthy) {
             resolve();
           } else {
-            reject(new Error(`Connection failed`);
+            reject(new Error(`Connection failed`));
           }
         });
       });
