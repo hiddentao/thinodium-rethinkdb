@@ -28,24 +28,24 @@ test['connect/disconnect'] = {
       yield this.db.disconnect();
     }
     
-    yield this.dropDb('thinodium-rethinkdb-test');
+    yield this.dropDb('thinodium_rethinkdb_test');
   },
 
   'creates db if it does not exist': function*() {
     yield this.db.connect({
-      db: 'thinodium-rethinkdb-test',
+      db: 'thinodium_rethinkdb_test',
     });
 
     let listOfDbs = yield this._r.dbList();
 
-    listOfDbs.should.contain('thinodium-rethinkdb-test');
+    listOfDbs.should.contain('thinodium_rethinkdb_test');
   },
 
   'uses db it it already exists': function*() {
-    yield this.createDb('thinodium-rethinkdb-test');
+    yield this.createDb('thinodium_rethinkdb_test');
 
     yield this.db.connect({
-      db: 'thinodium-rethinkdb-test',
+      db: 'thinodium_rethinkdb_test',
     });
   },
 };
