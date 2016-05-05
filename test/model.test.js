@@ -13,12 +13,16 @@ var Plugin = utils.Plugin,
   Database = Plugin.Database,
   Model = Plugin.Model;
 
+var Document = utils.Thinodium.Document;
+
 
 var test = utils.createTest(module);
 
 
 test['model'] = {
   beforeEach: function*() {
+    this.timeout(5000);
+
     this.db = new Database();
 
     yield this.db.connect({
@@ -29,13 +33,15 @@ test['model'] = {
   },
 
   afterEach: function*() {
+    this.timeout(5000);
+
     yield this.db.disconnect();
     
     yield this.dropDb('thinodium_rethinkdb_test');
   },
 
   'can do a raw query': function*() {
-    let ret = yield this.model._qry().insert({
+    let ret = yield this.model.rawQry().insert({
       name: 'john'
     }).run();
 
@@ -43,46 +49,51 @@ test['model'] = {
   },
 
   'can insert': function*() {
-    let doc = yield this.model._insert({
+    let doc = yield this.model.insert({
       name: 'john'
     });
+
+    doc.should.be.instanceof(Document);
 
     doc.id.should.be.defined;
   },
 
   'can get by id': function*() {
-    let doc = yield this.model._insert({
+    let doc = yield this.model.insert({
       name: 'john'
     });
 
-    let newdoc = yield this.model._get(doc.id);
+    let newdoc = yield this.model.get(doc.id);
+
+    newdoc.should.be.instanceof(Document);
 
     newdoc.id.should.be.defined;
+
     newdoc.name.should.eql('john');
   },
 
   'can update': function*() {
-    let doc = yield this.model._insert({
+    let doc = yield this.model.insert({
       name: 'john'
     });
 
-    yield this.model._update(doc.id, {
+    yield this.model.rawUpdate(doc.id, {
       name: 'mark'
     });
 
-    let newdoc = yield this.model._get(doc.id);
+    let newdoc = yield this.model.get(doc.id);
 
     expect(newdoc.name).to.eql('mark');
   },
 
   'can remove': function*() {
-    let doc = yield this.model._insert({
+    let doc = yield this.model.insert({
       name: 'john'
     });
 
-    yield this.model._remove(doc.id);
+    yield this.model.rawRemove(doc.id);
 
-    let newdoc = yield this.model._get(doc.id);
+    let newdoc = yield this.model.get(doc.id);
 
     expect(newdoc).to.be.null;
   },
@@ -127,7 +138,7 @@ test['model with schema'] = {
 
   'bad insert': function*() {
     try {
-      yield this.model._insert({
+      yield this.model.insert({
         name: 'john',
         title: 'test',
       });
@@ -141,7 +152,7 @@ test['model with schema'] = {
   },
 
   'good insert': function*() {
-    yield this.model._insert({
+    yield this.model.insert({
       name: 'john',
       age: 19,
     });
@@ -149,7 +160,7 @@ test['model with schema'] = {
 
   'bad update': function*() {
     try {
-      yield this.model._update(this._id, {
+      yield this.model.rawUpdate(this._id, {
         age: '23'
       });
 
@@ -162,7 +173,7 @@ test['model with schema'] = {
   },
 
   'good update': function*() {
-    yield this.model._update(this._id, {
+    yield this.model.rawUpdate(this._id, {
       title: 'mrs',
       age: 19,
     });

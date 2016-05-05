@@ -1,6 +1,6 @@
 {
   "name": "thinodium-rethinkdb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "RethinkDB adapter for Thinodium ODM library",
   "main": "index.js",
   "scripts": {
