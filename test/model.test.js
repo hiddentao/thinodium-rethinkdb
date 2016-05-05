@@ -91,4 +91,83 @@ test['model'] = {
 
 
 
+test['model with schema'] = {
+  beforeEach: function*() {
+    this.db = new Database();
+
+    yield this.db.connect({
+      db: 'thinodium_rethinkdb_test',
+    });
+
+    this.model = yield this.db.model('test', {
+      schema: {
+        title: {
+          type: String,
+          enum: ['mr', 'mrs'],
+        },
+        age: {
+          type: Number,
+          required: true,
+        },
+      },
+    });
+
+    let ret = yield this._r.db('thinodium_rethinkdb_test').table('test').insert({
+      name: 'tom',
+    });
+
+    this._id = ret.generated_keys[0];
+  },
+
+  afterEach: function*() {
+    yield this.db.disconnect();
+    
+    yield this.dropDb('thinodium_rethinkdb_test');
+  },
+
+  'bad insert': function*() {
+    try {
+      yield this.model._insert({
+        name: 'john',
+        title: 'test',
+      });
+
+      throw new Error('should have failed');
+    } catch (err) {
+      if (0 <= err.toString().indexOf('should have faild')) {
+        throw err;
+      }
+    }
+  },
+
+  'good insert': function*() {
+    yield this.model._insert({
+      name: 'john',
+      age: 19,
+    });
+  },
+
+  'bad update': function*() {
+    try {
+      yield this.model._update(this._id, {
+        age: '23'
+      });
+
+      throw new Error('should have failed');
+    } catch (err) {
+      if (0 <= err.toString().indexOf('should have faild')) {
+        throw err;
+      }
+    }
+  },
+
+  'good update': function*() {
+    yield this.model._update(this._id, {
+      title: 'mrs',
+      age: 19,
+    });
+  },
+};
+
+
 
