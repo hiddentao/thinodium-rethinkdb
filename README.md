@@ -49,8 +49,8 @@ Check out the [thinodium docs](https://hiddentao.github.io/thinodium) for furthe
 
 ## Building
 
-To run the tests you will need [RethinkDB](https://www.rethinkdb.com/) installed and running with default 
-host and port settings. Then on the command-line:
+To run the tests you will need [RethinkDB](https://www.rethinkdb.com/) installed 
+and running with default host and port settings. Then on the command-line:
 
     $ npm install
     $ npm test
