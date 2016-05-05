@@ -36,7 +36,7 @@ test['connect/disconnect'] = {
       db: 'thinodium_rethinkdb_test',
     });
 
-    let listOfDbs = yield this._r.dbList();
+    let listOfDbs = yield this._r.dbList().run();
 
     listOfDbs.should.contain('thinodium_rethinkdb_test');
   },
@@ -49,6 +49,57 @@ test['connect/disconnect'] = {
     });
   },
 };
+
+
+test['model'] = {
+  beforeEach: function*() {
+    yield this.dropDb('thinodium_rethinkdb_test');
+
+    this.db = new Database();
+
+    yield this.db.connect({
+      db: 'thinodium_rethinkdb_test',
+    });
+  },
+
+  afterEach: function*() {
+    yield this.db.disconnect();
+    yield this.dropDb('thinodium_rethinkdb_test');
+  },
+
+  'will create table': function*() {
+    let m = yield this.db.model('test_table');
+
+    let tables = yield this._r.db('thinodium_rethinkdb_test').tableList().run();
+
+    tables.should.contain('test_table');
+  },
+
+  'will create indexes': function*() {
+    let m = yield this.db.model('test_table', {
+      indexes: [
+        {
+          name: 'value'
+        },
+        {
+          name: 'email',
+          def: function(doc) {
+            return doc('emails')('email');
+          },
+          options: {
+            multi: true,
+          },
+        },
+      ],
+    });
+
+    let indexes = yield this._r.db('thinodium_rethinkdb_test')
+      .table('test_table').indexList().run();
+
+    indexes.should.contain('value');
+    indexes.should.contain('email');
+  },
+}
 
 
 
