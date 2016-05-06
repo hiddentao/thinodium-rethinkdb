@@ -30,9 +30,26 @@ const db = yield thinodium.connect('rethinkdb', {
 // get the model and setup indexes
 const User = yield db.model('User', {
   indexes: [
-    // simple index on username field
+    // single-value field
     {
       name: 'username',
+    },
+    // a multivalue field
+    {
+      name: 'roles',
+      options: {
+        multi: true,
+      },
+    },  
+    // totally custom indexing function
+    {
+      name: 'email',
+      def: function(doc) {
+        return doc('emails')('email');
+      },
+      options: {
+        multi: true,
+      },
     },
   ],
 });
