@@ -18,16 +18,19 @@ $ npm install thinodium thinodium-rethinkdb
 ## Usage examples
 
 ```js
-const thinodium = require('thinodium');
+const Thinodium = require('thinodium');
 
-const db = yield thinodium.connect('rethinkdb', {
+const db = yield Thinodium.connect('rethinkdb', {
   // db name
   db: 'mydb',
   /* all options get passed to rethinkdbdash module */
   ...
 });
 
-// get the model and setup indexes
+/*
+  This will create the "User" table and all specifies indexes if they 
+  don't already exist.
+ */
 const User = yield db.model('User', {
   indexes: [
     // single-value field
