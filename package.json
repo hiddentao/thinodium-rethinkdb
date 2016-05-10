@@ -41,6 +41,6 @@
     "mocha": "^2.1.0",
     "sinon": "^1.12.2",
     "sinon-chai": "^2.8.0",
-    "thinodium": "^1.1.0"
+    "thinodium": "^1.1.1"
   }
 }
