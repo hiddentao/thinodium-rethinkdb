@@ -1,6 +1,6 @@
 {
   "name": "thinodium-rethinkdb",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "RethinkDB adapter for Thinodium ODM library",
   "main": "index.js",
   "scripts": {
@@ -41,6 +41,6 @@
     "mocha": "^2.1.0",
     "sinon": "^1.12.2",
     "sinon-chai": "^2.8.0",
-    "thinodium": "^1.0.3"
+    "thinodium": "^1.1.0"
   }
 }
