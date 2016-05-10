@@ -72,6 +72,28 @@ test['model'] = {
     newdoc.name.should.eql('john');
   },
 
+  'can get all': function*() {
+    let docs = yield [
+      this.model.insert({
+        name: 'john'
+      }),
+      this.model.insert({
+        name: 'david'
+      }),
+    ];
+
+    let newdocs = yield this.model.getAll();
+
+    newdocs.length.should.be.eql(2);
+
+    newdocs[0].should.be.instanceof(Document);
+
+    let names = _.map(newdocs, (d) => d.name);
+    names.sort();
+
+    names.should.eql(['david', 'john']);
+  },
+
   'can update': function*() {
     let doc = yield this.model.insert({
       name: 'john'
@@ -104,6 +126,8 @@ test['model'] = {
 
 test['model with schema'] = {
   beforeEach: function*() {
+    this.timeout(10000);
+
     this.db = new Database();
 
     yield this.db.connect({
