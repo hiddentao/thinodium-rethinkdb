@@ -108,6 +108,7 @@ test['model'] = {
     expect(newdoc.name).to.eql('mark');
   },
 
+
   'can remove': function*() {
     let doc = yield this.model.insert({
       name: 'john'
@@ -167,9 +168,9 @@ test['model with schema'] = {
         title: 'test',
       });
 
-      throw new Error('should have failed');
+      throw new Error('FAIL');
     } catch (err) {
-      if (0 <= err.toString().indexOf('should have faild')) {
+      if (0 <= err.toString().indexOf('FAIL')) {
         throw err;
       }
     }
@@ -188,9 +189,9 @@ test['model with schema'] = {
         age: '23'
       });
 
-      throw new Error('should have failed');
+      throw new Error('FAIL');
     } catch (err) {
-      if (0 <= err.toString().indexOf('should have faild')) {
+      if (0 <= err.toString().indexOf('FAIL')) {
         throw err;
       }
     }
