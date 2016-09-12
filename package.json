@@ -1,6 +1,6 @@
 {
   "name": "thinodium-rethinkdb",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "RethinkDB adapter for Thinodium ODM library",
   "main": "index.js",
   "scripts": {
@@ -25,9 +25,9 @@
   },
   "homepage": "https://github.com/hiddentao/thinodium-rethinkdb#readme",
   "dependencies": {
-    "bluebird": "^3.3.5",
-    "lodash": "^4.11.1",
-    "rethinkdbdash": "^2.3.5"
+    "bluebird": "^3.4.6",
+    "lodash": "^4.15.0",
+    "rethinkdbdash": "^2.3.21"
   },
   "peerDependencies": {
     "thinodium": "^1.0.3"
