@@ -1,8 +1,11 @@
 # Thinodium RethinkDB adapter
 
 [![Build Status](https://travis-ci.org/hiddentao/thinodium-rethinkdb.svg?branch=master)](http://travis-ci.org/hiddentao/thinodium-rethinkdb)
+[![npm](https://img.shields.io/npm/v/thinodium.svg?maxAge=2592000)](https://www.npmjs.com/package/thinodium-rethinkdb)
+[![Join the chat at https://discord.gg/bYt4tWB](https://img.shields.io/badge/discord-join%20chat-738bd7.svg?style=flat-square)](https://discord.gg/bYt4tWB)
+[![Follow on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Follow&maxAge=2592000)](https://twitter.com/hiddentao)
 
-A RethinkDB adapter for [thinodium](https://github.com/hiddentao/thinodium) 
+A RethinkDB adapter for [thinodium](https://github.com/hiddentao/thinodium)
 which internally uses [rethinkdbdash](https://github.com/neumino/rethinkdbdash).
 
 Features:
@@ -28,7 +31,7 @@ const db = yield Thinodium.connect('rethinkdb', {
 });
 
 /*
-  This will create the "User" table and all specifies indexes if they 
+  This will create the "User" table and all specifies indexes if they
   don't already exist.
  */
 const User = yield db.model('User', {
@@ -69,7 +72,7 @@ Check out the [thinodium docs](https://hiddentao.github.io/thinodium) for furthe
 
 ## Building
 
-To run the tests you will need [RethinkDB](https://www.rethinkdb.com/) installed 
+To run the tests you will need [RethinkDB](https://www.rethinkdb.com/) installed
 and running with default host and port settings. Then on the command-line:
 
     $ npm install
@@ -82,5 +85,3 @@ Contributions are welcome! Please see [CONTRIBUTING.md](https://github.com/hidde
 ## License
 
 MIT - see [LICENSE.md](https://github.com/hiddentao/thinodium-rethinkdb/blob/master/LICENSE.md)
-
-
