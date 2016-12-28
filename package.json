@@ -1,6 +1,6 @@
 {
   "name": "thinodium-rethinkdb",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "RethinkDB adapter for Thinodium ODM library",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "rethinkdbdash": "^2.3.21"
   },
   "peerDependencies": {
-    "thinodium": "^1.0.3"
+    "thinodium": "^1.x.x"
   },
   "devDependencies": {
     "chai": "^3.5.0",
