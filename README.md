@@ -1,11 +1,11 @@
 # Thinodium RethinkDB adapter
 
-[![Build Status](https://travis-ci.org/hiddentao/thinodium-rethinkdb.svg?branch=master)](http://travis-ci.org/hiddentao/thinodium-rethinkdb)
+[![Build Status](https://travis-ci.org/thinodium/thinodium-rethinkdb.svg?branch=master)](http://travis-ci.org/thinodium/thinodium-rethinkdb)
 [![npm](https://img.shields.io/npm/v/thinodium-rethinkdb.svg?maxAge=2592000)](https://www.npmjs.com/package/thinodium-rethinkdb)
 [![Join the chat at https://discord.gg/bYt4tWB](https://img.shields.io/badge/discord-join%20chat-738bd7.svg?style=flat-square)](https://discord.gg/bYt4tWB)
 [![Follow on Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Follow&maxAge=2592000)](https://twitter.com/hiddentao)
 
-A RethinkDB adapter for [thinodium](https://github.com/hiddentao/thinodium)
+A RethinkDB adapter for [thinodium](https://github.com/thinodium/thinodium)
 which internally uses [rethinkdbdash](https://github.com/neumino/rethinkdbdash).
 
 Features:
@@ -80,8 +80,8 @@ and running with default host and port settings. Then on the command-line:
 
 ## Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](https://github.com/hiddentao/thinodium-rethinkdb/blob/master/CONTRIBUTING.md).
+Contributions are welcome! Please see [CONTRIBUTING.md](https://github.com/thinodium/thinodium-rethinkdb/blob/master/CONTRIBUTING.md).
 
 ## License
 
-MIT - see [LICENSE.md](https://github.com/hiddentao/thinodium-rethinkdb/blob/master/LICENSE.md)
+MIT - see [LICENSE.md](https://github.com/thinodium/thinodium-rethinkdb/blob/master/LICENSE.md)
